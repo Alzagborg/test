@@ -22,9 +22,9 @@ std::vector<product> shop;
 
 int main()
 {
-    shop.push_back({ "salt",7,30 });
-    shop.push_back({ "oil" , 83, 15 });
-    shop.push_back({ "bread", 24,48 });
+    shop.push_back({ "salt\t",7,30 });
+    shop.push_back({ "oil\t" , 83, 15 });
+    shop.push_back({ "bread\t", 24,48 });
 
     int wallet = 5000;
     int number;
@@ -33,7 +33,7 @@ int main()
 
     while (wallet > 0)
     {
-        std::cout << "WALLET" << wallet << "All product" << std::endl;
+        std::cout << "WALLET " << wallet << "\n\nAll product:" << std::endl;
         std::cout << "Name\t\tPrice\tCount\n" << std::endl;
 
         for (int i = 0; i < shop.size(); i++)
@@ -41,7 +41,7 @@ int main()
             std::cout << i + 1 << "\t" << shop[i].name << shop[i].price << "\t" << shop[i].count << std::endl;
 
         }
-        std::cout << "Chouse count\n";
+        std::cout << "\nChouse number\n";
         std::cin >> number;
 
         if (shop[number - 1].count >= 0) {
@@ -52,9 +52,10 @@ int main()
             if (shop[number - 1].count >= temp) {
                 if (shop[number - 1].price * temp < wallet) {
                     wallet -= temp * (shop[number - 1].price);
-                    std::cout << "Buy" << shop[number - 1].name << "\tTotal prise" << temp * shop[number - 1].price << std::endl;
+                    std::cout << "Buy\t" << shop[number - 1].name << "\tTotal prise" << temp * shop[number - 1].price << std::endl;
                     shop[number - 1].count -= temp;
                     std::cout << "WALLET" << wallet << std::endl;
+                    std::cout << "_______\n";
                 }
                 else {
                     std::cout << "NO MONEY\t Total PRICE: " << shop[number - 1].price * temp << ">" << wallet;
@@ -62,13 +63,15 @@ int main()
             }
             else
             {
-                std::cout << "Qantiti is less\n";
+                std::cout << "\nQantiti is less\n";
             }
         }
         else {
             std::cout << "\nCount 0\n";
         }
     }
+
+
 }
 
 
