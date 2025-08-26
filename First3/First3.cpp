@@ -24,6 +24,7 @@ int main()
     int number;
     int temp;
 
+
     while (wallet > 0)
     {
         std::cout << "WALLET" << wallet << "All product" << std::endl;
